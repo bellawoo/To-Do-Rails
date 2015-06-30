@@ -57,6 +57,8 @@ $(document).on("ready", function(){
           new_item.on("click", taskClickHandler)
 
           $("ul.task-list").append(new_item)
+
+          $("input").val('')
         }
       })
     }
