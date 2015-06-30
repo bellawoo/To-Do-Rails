@@ -5,8 +5,11 @@
 
 <ul class="task-list">
   <% @list.tasks.each do |task| %>
-    <li class="task <%= if task.completed? then 'complete' else '' end %>" data-task-id="<%= task.id %>">
+    <li>
+      <span class="task <%= if task.completed? then 'complete' else '' end %>" data-task-id="<%= task.id %>">
       <%= task.content %>
+      </span>
+      <button class="delete" data-task-id="<%= task.id %>">Delete</button>
     </li>
   <% end %>
 </ul>
