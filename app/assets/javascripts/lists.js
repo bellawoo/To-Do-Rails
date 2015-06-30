@@ -52,7 +52,7 @@ $(document).on("ready", function(){
         error: errorHandler,
         success: function(data) {
           // deleteButton = $('<button />').addClass('delete').text('Delete')
-          var new_item = $("<span class='task' data-task-id='" + data.id + "'>" + data.content + "</span>")
+          var new_item = $("<li><span class='task' data-task-id='" + data.id + "'>" + data.content + "</span><button class='delete' data-task-id='" + data.id + "'> Delete </button>")
 
           new_item.on("click", taskClickHandler)
 
