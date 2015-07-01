@@ -1,18 +1,18 @@
 class ListsController < ApplicationController
   def index
-    @lists = current_user.list.all  
+    @lists = List.all  
   end
 
   def show
-    @list = current_user.list.find params[:id]
+    @list = List.find params[:id]
   end
 
   def new
-    @list = current_user.list.new
+    @list = List.new
   end
 
   def create
-    @list = current_user.list.new(
+    @list = List.new(
       name: params[:name]
       )
     if @list.save
