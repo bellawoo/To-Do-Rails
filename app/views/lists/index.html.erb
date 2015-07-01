@@ -1,7 +1,13 @@
 <div class="container">
 <h1>Welcome!</h1>
+
+<% if @list.errors.any? %>
+  <p><strong>Error!</strong> <%= @list.errors.full_messages.to_sentence %></p>
+<% end %>
+
 <h3>Your Lists:</h3>
 </div>
+
 <div>
   <ul>
     <% @lists.each do |list| %>
@@ -9,7 +15,15 @@
     <% end %>
   </ul>
 </div>
+
 <div>
   <h3>Create a new list:</h3>
-  
+  <div class="form-group">
+    <%= bootstrap_form_for(@list, layout: :horizontal) do |l| %>
+    <%= l.text_field :name, label: "List Name" %>
+    <div>
+    <%= l.submit "Create" %>
+    </div>
+      <% end %>
+  </div>
 </div>

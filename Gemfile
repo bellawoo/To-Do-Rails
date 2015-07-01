@@ -13,6 +13,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
+gem 'twitter-bootstrap-rails', '~>3.2.0'
+gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
 
 group :development, :test do
   gem 'pry-rails'
