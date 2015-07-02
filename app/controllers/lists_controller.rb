@@ -12,13 +12,8 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(
-      name: params[:name]
-      )
-    if @list.save
-      redirect_to list_path(@list), notice: "List created"
-    else
-      render :new
-    end
+    @list = List.new name: params[:list_name], user_id: current_user.id
+    @list.save!
+    render json: @list
   end
 end

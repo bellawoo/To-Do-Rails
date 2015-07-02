@@ -1,7 +1,7 @@
 <h1><%= @list.name %></h1>
 
 <p>Add a task</p>
-<input type="text" data-list-id="<%= @list.id %>">
+<input type="text" class="task" data-list-id="<%= @list.id %>">
 
 <ul class="task-list">
   <% @list.tasks.each do |task| %>

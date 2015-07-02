@@ -40,7 +40,7 @@ $(document).on("ready", function(){
 
   $("span.task").on("click", taskClickHandler)
 
-  $("input").on("keyup", function(evt) {
+  $("input.task").on("keyup", function(evt) {
     if (evt.keyCode === 13) { // pressed enter
       var list_id = $(this).data("list-id")
 
@@ -57,6 +57,25 @@ $(document).on("ready", function(){
           new_item.on("click", taskClickHandler)
 
           $("ul.task-list").append(new_item)
+
+          $("input").val('')
+        }
+      })
+    }
+  })
+
+  $("input.all-lists").on("keyup", function(evt) {
+    if (evt.keyCode === 13) {
+      $.ajax("/lists", {
+        method: "POST",
+        data: {
+          list_name: $(this).val()
+        },
+        error: errorHandler,
+        success: function (data) {
+          var new_list = $("<li><%= link_to" + data.name + ", list %></li>")
+
+          $(".all-lists").append(new_list)
 
           $("input").val('')
         }
