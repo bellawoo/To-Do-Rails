@@ -64,7 +64,7 @@ $(document).on("ready", function(){
     }
   })
 
-  $("input.all-lists").on("keyup", function(evt) {
+  $("input.new-list").on("keyup", function(evt) {
     if (evt.keyCode === 13) {
       $.ajax("/lists", {
         method: "POST",
@@ -73,7 +73,7 @@ $(document).on("ready", function(){
         },
         error: errorHandler,
         success: function (data) {
-          var new_list = $("<li><%= link_to" + data.name + ", list %></li>")
+          var new_list = $("<li><%= link_to " + data.name + ", list %></li>")
 
           $(".all-lists").append(new_list)
 

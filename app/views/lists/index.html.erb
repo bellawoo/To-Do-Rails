@@ -4,7 +4,7 @@
 </div>
 
 <div>
-  <ul>
+  <ul class="all-lists">
     <% @lists.each do |list| %>
     <li><%= link_to list.name, list %></li>
     <% end %>
@@ -13,6 +13,6 @@
 
 <div>
   <h3>Create a new list:</h3>
-  <input type="text" class="all-lists">
+  <input type="text" class="new-list">
   <!-- Need to put error flash messages back in. Currently throwing NoMethodError on @list.error -->
 </div>
